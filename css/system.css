@@ -1,0 +1,202 @@
+body {
+    background: #1690A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+.m-header {
+    margin-left: 3em; 
+}
+
+.m-dialog {
+    max-width: 600px; 
+}
+
+.m-content {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+.m-body {
+    padding: 20px; 
+}
+
+.m-footer {
+    margin-left: 7em;
+}
+
+#logoutPopup {
+    /* Hide the modal by default */
+        display: none;
+        position: fixed;
+        margin-left: 5%;
+        background-color: white;
+        height: 10em;
+        width: 20em;
+        border: 2px solid black;
+        border-radius: 1em;
+    }
+
+#editPopup, #deletePopup {
+    /* Hide the modal by default */
+        display: none;
+        position: fixed;
+        margin-left: 5%;
+        background-color: white;
+        height: 25em;
+        width: 25em;
+        border: 2px solid black;
+        border-radius: 1em;
+}
+
+#editMBody, #deleteMBody {
+    padding: 20px;
+    display: flex;
+}
+
+form {
+    display: flex;
+    width: 95em;
+    height: 40em;
+    border: 2px solid black;
+    background: #fff;
+    border-radius: 15px;
+}
+
+h3{
+    font-size: 22px;
+    margin: 9px;
+}
+div.menu img.pic1{
+    width: 100px;
+    margin-left: 3.3em;
+ }
+ 
+div.menu {
+    background: rgb(43, 112, 216);
+    width: 12.3em;
+    padding: 30px 0px;
+    height: 39.7em;
+    border-radius: 15px;
+}
+
+div.equipment, div.status, div.employee {
+    position: absolute;
+    margin-left: 13em;
+    width: 70em;
+    height: 39.7em;
+    padding: 30px 10px;
+    border-radius: 15px;
+}
+
+div.equipment div.input_text{
+    width: 70%;
+    position: absolute;
+}
+
+div.equipment div.input_button{
+    width: 10%;
+    margin-left: 95%;
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.employee div.input_text{
+    width: 60%;
+    position: absolute;
+    margin-left: 2em;
+}
+
+div.employee div.input_button{
+    width: 10%;
+    margin-left: 73%;
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.input_button button{
+    margin-top: 3px;
+    width: 120px;
+    height: 35px;
+    background: rgb(43, 112, 216);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+h2 {
+    text-align: center;
+}
+
+input {
+    display: block;
+    border: 2px solid black;
+    width: 150px;
+    height: 23px;
+    margin: 30px 0px 0px 20px;
+}
+
+select{
+    display: block;
+    border: 2px solid black;
+    width: 140px;
+    height: 23px;
+    margin: 30px 0px 0px 28px;
+}
+
+div.menu button {
+    width: 60%;
+    background: rgb(43, 112, 216);
+    margin: 15px 47px;
+    padding: 10px 15px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+button:hover {
+    opacity: 0.7;
+}
+
+div.table_container{
+    max-height: 400px;
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table.emp_table_view {
+    margin-left: 4em;
+    width: 63em;
+    height: 19em;
+}
+
+th, td {
+    text-align: center;
+    border: 2px solid black;
+}
+
+div.textfield1, div.textfield2{
+   display: flex;
+}
+
