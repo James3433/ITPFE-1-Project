@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
 $user = $_SESSION['user'];
 $user_fname = $user['user_fname'];
 
-$conn = mysqli_connect("localhost", "root", "", "inventory_database");
+$conn = mysqli_connect("localhost", "root", "", "database_project");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -22,7 +22,10 @@ if ($countResult) {
 }
 
 $sql = "SELECT * FROM employee_details";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql); 
+
+$sql1 = "SELECT * FROM school_equipment";
+$result1 = mysqli_query($conn, $sql1);
 
 $empIdQuery = "SELECT emp_id FROM employee WHERE emp_id != 404";
 $empIdResult = mysqli_query($conn, $empIdQuery);
@@ -46,6 +49,21 @@ function getStatusText($empStatus) {
             return 'Inactive';
         case 0:
             return 'Retired';
+        default:
+            return 'Unknown';
+    }
+} 
+
+function getCategoryText($equipCat) {
+    switch ($equipCat) {
+        case 1:
+            return 'ICS';
+        case 2:
+            return 'PAR';
+        case 3:
+            return 'LGU';
+        case 3:
+            return 'Others';
         default:
             return 'Unknown';
     }
@@ -78,7 +96,48 @@ function getStatusInt($empStatus) {
         <div class="menu">
             <img class="pic1" src="pictures/user.png" alt="picture_1">
             <h3>Welcome, <?php echo $user_fname; ?></h3>
+            <button type="button" id="employeeBtn">Employee</button>
+            <button type="button" id="equipmentBtn">Equipment</button>
             <button type="button" id="logout">Logout</button>
+        </div>
+
+        <div class="equipment" id="equipDiv">
+            <h2>Equipment Status</h2>
+            <div class="table_container">
+                <table class="equip_table_view">
+                    <tr>
+                        <th>Equip ID</th>
+                        <th>Property ID</th>
+                        <th>PAR ID</th>
+                        <th>Equipment Name</th>
+                        <th>Equipment Description</th>
+                        <th>Equip Used</th>
+                        <th>Equip User</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                    </tr>
+                    <?php
+                    if (mysqli_num_rows($result1) > 0) {
+                        while ($row = mysqli_fetch_assoc($result1)) {
+                            $categoryText = getCategoryText($row["category_id"]);
+                            echo "<tr>
+                                <td>" . $row["equip_id"] . "</td>
+                                <td>" . $row["property_num"] . "</td>
+                                <td>" . $row["PIR_num"] . "</td>
+                                <td>" . $row["equip_name"] . "</td>
+                                <td>" . $row["equip_description"] . "</td>
+                                <td>" . $row["equip_used"] . "</td>
+                                <td>" . $row["equip_user"] . "</td>
+                                <td>" . $row["amount"] . "</td>
+                                <td>" . $categoryText . "</td>
+                            </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='12'>No data available</td></tr>";
+                    }
+                    ?>
+                </table>
+            </div> 
         </div>
 
         <div class="employee" id="empDiv">

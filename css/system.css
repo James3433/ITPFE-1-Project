@@ -105,17 +105,8 @@ div.equipment, div.status, div.employee {
     border-radius: 15px;
 }
 
-div.equipment div.input_text{
-    width: 70%;
-    position: absolute;
-}
-
-div.equipment div.input_button{
-    width: 10%;
-    margin-left: 95%;
-    margin-top: 21px;
-    display: flex;
-    flex-direction: column;
+#equipDiv{
+   display: none;
 }
 
 div.employee div.input_text{

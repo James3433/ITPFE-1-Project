@@ -2,7 +2,7 @@
 $sname = "localhost";
 $username = "root";
 $password = "";
-$db_name = "inventory_database";
+$db_name = "database_project";
 
 $conn = mysqli_connect($sname, $username, $password, $db_name);
 if(!$conn){

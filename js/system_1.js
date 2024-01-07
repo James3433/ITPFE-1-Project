@@ -1,9 +1,7 @@
-var equipmentDiv = document.getElementById('equipmentDiv');
-    var statusDiv = document.getElementById('statusDiv');
+    var equipmentDiv = document.getElementById('equipDiv');
     var empDiv = document.getElementById('empDiv');
     var equipmentBtn = document.getElementById('equipmentBtn');
-    var statusBtn = document.getElementById('statusBtn');
-    var empBtn = document.getElementById('empBtn');
+    var empBtn = document.getElementById('employeeBtn');
     var overlay = document.getElementById("overlay");
     var popup = document.getElementById("popup");
 
@@ -45,28 +43,20 @@ var equipmentDiv = document.getElementById('equipmentDiv');
     var okDeleteButton = document.getElementById('OKDelete');
 
 
-    function toggleDiv(divId) {
-        if (divId === 'equipment') {
-            window.location.href = 'http://localhost/Inventory_System_Website/system.php';
-            equipmentDiv.style.display = 'block';
-            statusDiv.style.display = 'none';
-            empDiv.style.display = 'none';
-            equipmentBtn.style.backgroundColor = 'rgb(43, 112, 216)';
-            statusBtn.style.backgroundColor = '';
-            empDiv.style.backgroundColor = '';
-        } else if (divId === 'status') {
-            window.location.href = 'http://localhost/Inventory_System_Website/system.php';
+    equipmentBtn.addEventListener('click', function() {
+        equipmentDiv.style.display = 'block';
+        empDiv.style.display = 'none';
+        equipmentBtn.style.backgroundColor = 'rgb(43, 112, 216)';
+        empBtn.style.backgroundColor = '';
+    });
+    
+    empBtn.addEventListener('click', function() {
             equipmentDiv.style.display = 'none';
-            statusDiv.style.display = 'block';
-            empDiv.style.display = 'none';
+            empDiv.style.display = 'block';
             equipmentBtn.style.backgroundColor = '';
-            statusBtn.style.backgroundColor = 'rgb(43, 112, 216)';
-            empBtn.style.backgroundColor = '';
-        } else if (divId === 'employee') {
-            // Redirect to system_1.php
-            window.location.href = 'http://localhost/Inventory_System_Website/system_1.php';
-        }
-    }
+            empBtn.style.backgroundColor = 'rgb(43, 112, 216)';
+    });
+
     function showLogoutPopup() {
         overlay.style.display = "block";
         logoutPopup.style.display = "block";
